@@ -528,12 +528,9 @@ void dispatchMessage() {
             }
             frontendManager->currentFrontend()->setVisible(true);
             socket->write("Application set visible.");
-        } else if ( msg == "hide") {
-            frontendManager->currentFrontend()->setVisible(false);
-            socket->write("Application set invisible.");
         } else if ( msg == "toggle") {
-            frontendManager->currentFrontend()->toggleVisibility();
-            socket->write("Visibility toggled.");
+            frontendManager->currentFrontend()->setVisible(true);
+            socket->write("Application set visible.");
         } else
             socket->write("Command not supported.");
     }
